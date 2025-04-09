@@ -66,7 +66,7 @@ docker-compose up --build
 docker-compose up -d
 ```
 
-The server will start on `http://localhost:3000`
+The server will start on `http://localhost:3000/api/todos/`
 
 ## API Endpoints
 
