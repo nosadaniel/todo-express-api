@@ -11,3 +11,4 @@ This project demonstrates:
 - Using dependency injection with Awilix for better code organization
 - Building a RESTful Todo API with MongoDB integration  
 - Following SOLID principles and clean architecture patterns
+- Containerized with docker and docker-compose

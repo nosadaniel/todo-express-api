@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todo-app-image
+    container_name: todo-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - todo-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: todo-mongodb
+    ports:
+      - "27018:27017"
+    env_file:
+      - .env.db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - todo-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  todo-network:
+    driver: bridge
+    external: true
